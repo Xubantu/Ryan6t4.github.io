@@ -10,10 +10,7 @@
 h1,
 h2,
 h3,
-h4 {
-  text-align: left;
-}
-
+h4,
 p,
 li {
   text-align: left;
@@ -22,7 +19,7 @@ li {
 /*making two grid box */
 .container {
   display: grid;
-  grid-template-columns: 40% auto;
+  grid-template-columns: 29.3vw auto;
   height: 100vh;
   position: relative;
 }
@@ -34,287 +31,114 @@ li {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start;
-  padding: 2rem 2.5rem;
-  overflow-y: scroll;
+  align-content: flex-start;
+  /* align-items: flex-start; */
+
+  /* overflow-y: scroll; */
   overflow-x: hidden;
   position: relative;
   z-index: 10;
   height: 100vh;
-  margin-right: -12px;
+
   word-wrap: break-word;
-  max-width: 100%;
   /* CONTAINER QUERY SUPPORT */
   container-type: inline-size;
 }
 
-/* Scrollbar styling WITHOUT padding - full height track */
-.box1::-webkit-scrollbar {
-  width: 12px;
+/* 1369px → 933px: box1 = 400px */
+@media (max-width: 1369px) {
+  .container {
+    grid-template-columns: 400px auto;
+  }
+}
+/* 932px → 768px: box1 = 320px */
+@media (max-width: 927px) {
+  .container {
+    grid-template-columns: 320px auto;
+  }
+}
+@media (max-width: 767px) {
+  .container {
+    grid-template-columns: 100vw;
+  }
+  .box1 {
+    height: 77.7vh;
+  }
+  .box2 {
+    height: auto;
+  }
 }
 
-.box1::-webkit-scrollbar-track {
-  background: white;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+.grid1 {
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
-
-.box1::-webkit-scrollbar-thumb {
-  background: rgba(32, 32, 32, 0.3);
-  border-radius: 6px;
-  border: 2px solid rgba(32, 32, 32, 0.3);
-  transition: background 0.3s ease;
-}
-
-.box1::-webkit-scrollbar-thumb:hover {
-  background: #202020;
-}
-
-.box1::-webkit-scrollbar-corner {
-  background: white;
-}
-
-/* Header Section - First Element */
 .header-section {
-  width: 100%;
-  margin-bottom: 3rem;
-  padding-top: 2rem;
-  flex-shrink: 0;
-  overflow: hidden;
-  max-width: 100%;
-  /* CONTAINER QUERY SUPPORT */
-  container-type: inline-size;
+  padding: 4rem 1rem 2rem 1rem;
+  height: 100%;
 }
 
 /* MASSIVE H1 - MUCH BIGGER TEXT SIZE */
-.box1 h1 {
+.box1 #name {
   text-align: left;
-  margin-bottom: 1.5rem;
+  /* margin-bottom: 1.5rem; */
   font-weight: bold;
-  line-height: 0.9;
+  line-height: 1.2;
+  /* line-height: 0.9; */
   transition: all 0.3s ease;
   letter-spacing: -0.03em;
   max-width: 100%;
   width: 100%;
-
+  text-decoration: none;
+  color: white;
   /* MASSIVE SIZING: Much larger baseline */
-  font-size: clamp(2rem, 25cqi, 12rem);
+  font-size: clamp(3.5rem, 8cqi, 9rem);
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: break-word;
+  text-overflow: clip;
 
-  /* SMART WRAPPING: Only allow full words on new lines */
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-
-  /* FALLBACK: If container is too narrow, allow wrapping */
   min-width: 0;
 }
 
 /* CONTAINER QUERIES: Ultra-precise sizing based on container width */
-@container (min-width: 400px) {
-  .box1 h1 {
-    font-size: clamp(3.5rem, 20cqi, 10rem);
-    white-space: normal;
-    overflow: visible;
-    text-overflow: unset;
-    word-spacing: 0.1em;
-    hyphens: none;
-    word-break: keep-all;
-    overflow-wrap: normal;
-  }
-}
-
-@container (min-width: 300px) and (max-width: 399px) {
-  .box1 h1 {
-    font-size: clamp(2.5rem, 18cqi, 8rem);
-    white-space: normal;
-    overflow: visible;
-    text-overflow: unset;
-    word-spacing: 0.05em;
-    hyphens: none;
-    word-break: keep-all;
-    overflow-wrap: normal;
-  }
-}
-
-@container (min-width: 200px) and (max-width: 299px) {
-  .box1 h1 {
-    font-size: clamp(2rem, 15cqi, 6rem);
-    white-space: normal;
-    overflow: visible;
-    text-overflow: unset;
-    word-spacing: 0.02em;
-    hyphens: none;
-    word-break: keep-all;
-    overflow-wrap: normal;
-  }
-}
-
-@container (max-width: 199px) {
-  .box1 h1 {
-    font-size: clamp(1.5rem, 12cqi, 4rem);
-    white-space: normal;
-    overflow: visible;
-    text-overflow: unset;
-    word-spacing: 0;
-    hyphens: auto;
-    word-break: break-word;
-    overflow-wrap: break-word;
-  }
-}
 
 .box1 h1:hover {
   color: whitesmoke;
   opacity: 0.7;
-  transform: scale(1.02);
+  /* transform: scale(1.02); */
 }
 
 /* ULTRA-DYNAMIC H2 - AUTO-FITTING */
-.box1 h2 {
+.box1 #dev {
   text-align: left;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.466);
   font-weight: 500;
-  line-height: 1;
+  line-height: 1.5;
   margin-bottom: 1rem;
   letter-spacing: -0.01em;
   max-width: 100%;
   width: 100%;
+  padding-top: 0.5rem;
 
   /* DYNAMIC SIZING */
-  font-size: clamp(0.8rem, 10cqi, 4rem);
-  white-space: nowrap;
+  /* font-size: clamp(1.2rem, 3cqi, 3.2rem); */
+  font-size: clamp(1.2rem, 1.5vw + 0.4rem, 1.9rem);
+  /* white-space: nowrap; */
+  text-wrap: wrap;
   overflow: hidden;
   text-overflow: ellipsis;
   min-width: 0;
-}
-
-@container (min-width: 300px) {
-  .box1 h2 {
-    font-size: clamp(1.2rem, 8cqi, 3rem);
-    white-space: normal;
-    overflow: visible;
-    text-overflow: unset;
-    word-spacing: 0.05em;
-    hyphens: none;
-    word-break: keep-all;
-    overflow-wrap: normal;
-  }
-}
-
-@container (min-width: 200px) and (max-width: 299px) {
-  .box1 h2 {
-    font-size: clamp(1rem, 6cqi, 2.5rem);
-    white-space: normal;
-    overflow: visible;
-    text-overflow: unset;
-    word-spacing: 0.02em;
-    hyphens: none;
-    word-break: keep-all;
-    overflow-wrap: normal;
-  }
-}
-
-@container (max-width: 199px) {
-  .box1 h2 {
-    font-size: clamp(0.7rem, 4cqi, 1.5rem);
-    white-space: normal;
-    overflow: visible;
-    text-overflow: unset;
-    hyphens: auto;
-    word-break: break-word;
-    overflow-wrap: break-word;
-  }
-}
-
-/* ULTRA-DYNAMIC H3 - AUTO-FITTING */
-.box1 h3 {
-  text-align: left;
-  color: rgba(255, 255, 255, 0.85);
-  font-weight: 500;
-  line-height: 1;
-  margin-bottom: 0.8rem;
-  max-width: 100%;
-  width: 100%;
-
-  /* DYNAMIC SIZING */
-  font-size: clamp(0.7rem, 8cqi, 3rem);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  min-width: 0;
-}
-
-@container (min-width: 250px) {
-  .box1 h3 {
-    font-size: clamp(1rem, 6cqi, 2.5rem);
-    white-space: normal;
-    overflow: visible;
-    text-overflow: unset;
-    word-spacing: 0.03em;
-    hyphens: none;
-    word-break: keep-all;
-    overflow-wrap: normal;
-  }
-}
-
-@container (max-width: 249px) {
-  .box1 h3 {
-    font-size: clamp(0.6rem, 4cqi, 1.8rem);
-    white-space: normal;
-    overflow: visible;
-    text-overflow: unset;
-    hyphens: auto;
-    word-break: break-word;
-    overflow-wrap: break-word;
-  }
-}
-
-/* ULTRA-DYNAMIC H4 - AUTO-FITTING */
-.box1 h4 {
-  text-align: left;
-  color: rgba(255, 255, 255, 0.9);
-  font-weight: 500;
-  line-height: 1;
-  margin-bottom: 0.6rem;
-  max-width: 100%;
-  width: 100%;
-
-  /* DYNAMIC SIZING */
-  font-size: clamp(0.6rem, 6cqi, 2.5rem);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  min-width: 0;
-}
-
-@container (min-width: 200px) {
-  .box1 h4 {
-    font-size: clamp(0.9rem, 5cqi, 2rem);
-    white-space: normal;
-    overflow: visible;
-    text-overflow: unset;
-    word-spacing: 0.02em;
-    hyphens: none;
-    word-break: keep-all;
-    overflow-wrap: normal;
-  }
-}
-
-@container (max-width: 199px) {
-  .box1 h4 {
-    font-size: clamp(0.5rem, 3cqi, 1.5rem);
-    white-space: normal;
-    overflow: visible;
-    text-overflow: unset;
-    hyphens: auto;
-    word-break: break-word;
-    overflow-wrap: break-word;
-  }
 }
 
 /* Navigation Section - Second Element */
 .nav-section {
   width: 100%;
   margin-bottom: auto;
-  padding: 1rem 0;
+  line-height: 0.5;
+  /* padding: 1rem 0; */
   flex-shrink: 0;
 }
 
@@ -330,16 +154,17 @@ li {
   list-style: none;
   transform: translateX(0);
   transition: transform 0.3s ease;
-  padding: 0.3rem 0;
+  /* padding: 0.3rem 0; */
 }
 
-.box1 nav ul li:hover {
+/* .box1 nav ul li:hover {
   transform: translateX(8px);
-}
+} */
 
 .box1 nav ul li a {
   color: white;
-  font-size: clamp(1rem, 2vw + 0.2rem, 1.4rem);
+  /* font-size: clamp(1rem, 2vw + 0.2rem, 1.4rem); */
+  font-size: clamp(1rem, 1.3vw + 0.2rem, 1.5rem);
   font-weight: 500;
   text-decoration: none;
   transition: all 0.3s ease;
@@ -349,7 +174,7 @@ li {
 }
 
 .box1 nav ul li a:before {
-  content: "";
+  /* content: ""; */ /*it will render a under line */
   position: absolute;
   bottom: 0;
   left: 0;
@@ -360,7 +185,7 @@ li {
 }
 
 .box1 nav ul li a:hover {
-  opacity: 0.7;
+  opacity: 0.5;
 }
 
 .box1 nav ul li a:hover:before {
@@ -375,8 +200,8 @@ li {
 /* Social Media Section - Third Element */
 .social-section {
   width: 100%;
-  margin: 3rem 0 1rem 0;
-  padding: 1rem 0;
+  /* margin: 3rem 0 1rem 0; */
+  padding-top: 2rem;
   flex-shrink: 0;
 }
 
@@ -391,10 +216,10 @@ li {
 }
 
 .social div {
-  width: max(40px, min(50px, 6vw));
-  height: max(40px, min(50px, 6vw));
-  min-width: 30px;
-  min-height: 30px;
+  width: max(40px);
+  height: max(40px);
+  min-width: 20px;
+  min-height: 20px;
   background-color: white;
   border: 2px solid transparent;
   border-radius: 50%;
@@ -412,8 +237,8 @@ li {
 }
 
 .social div i {
-  color: #333;
-  font-size: max(0.8rem, min(1.2rem, 4vw));
+  color: #0d1117;
+  font-size: max(0.8rem, min(1rem, 3vw));
   transition: color 0.3s ease;
 }
 
@@ -425,14 +250,14 @@ li {
 .footer-section {
   width: 100%;
   padding: 1rem 0;
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
   flex-shrink: 0;
 }
 
 footer {
   text-align: center;
   color: rgba(255, 255, 255, 0.7);
-  font-size: clamp(0.8rem, 2vw, 1rem);
+  font-size: clamp(0.9rem, 1.3vw, 1.8rem);
   padding-top: 0.8rem;
 }
 
@@ -440,7 +265,11 @@ footer a {
   color: white;
   text-decoration: none;
   transition: opacity 0.3s ease;
-  font-size: 1rem;
+  /* font-size: 1rem; */
+  font-size: clamp(0.9rem, 1.3vw, 1.8rem);
+}
+.bottom-to-fix-footer {
+  margin-top: auto;
 }
 
 /* FIXED: Box2 styling - Left-aligned content */
@@ -495,742 +324,4 @@ footer a {
   overflow: hidden;
   text-overflow: ellipsis;
   min-width: 0;
-}
-
-@container (min-width: 400px) {
-  .box2 h1 {
-    font-size: clamp(3rem, 18cqi, 8rem);
-    white-space: normal;
-    overflow: visible;
-    text-overflow: unset;
-    word-spacing: 0.08em;
-    hyphens: none;
-    word-break: keep-all;
-    overflow-wrap: normal;
-  }
-}
-
-@container (min-width: 300px) and (max-width: 399px) {
-  .box2 h1 {
-    font-size: clamp(2.5rem, 15cqi, 6rem);
-    white-space: normal;
-    overflow: visible;
-    text-overflow: unset;
-    word-spacing: 0.05em;
-    hyphens: none;
-    word-break: keep-all;
-    overflow-wrap: normal;
-  }
-}
-
-@container (max-width: 299px) {
-  .box2 h1 {
-    font-size: clamp(2rem, 12cqi, 5rem);
-    white-space: normal;
-    overflow: visible;
-    text-overflow: unset;
-    hyphens: auto;
-    word-break: break-word;
-    overflow-wrap: break-word;
-  }
-}
-
-/* ULTRA-DYNAMIC Box2 H2 - AUTO-FITTING */
-.box2 h2 {
-  color: #34495e;
-  margin-bottom: 1.5rem;
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: -0.01em;
-  text-align: left;
-  max-width: 100%;
-  width: 100%;
-
-  /* DYNAMIC SIZING */
-  font-size: clamp(0.8rem, 8cqi, 3.5rem);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  min-width: 0;
-}
-
-@container (min-width: 300px) {
-  .box2 h2 {
-    font-size: clamp(1rem, 6cqi, 2.8rem);
-    white-space: normal;
-    overflow: visible;
-    text-overflow: unset;
-    word-spacing: 0.05em;
-    hyphens: none;
-    word-break: keep-all;
-    overflow-wrap: normal;
-  }
-}
-
-@container (max-width: 299px) {
-  .box2 h2 {
-    font-size: clamp(0.7rem, 4cqi, 2rem);
-    white-space: normal;
-    overflow: visible;
-    text-overflow: unset;
-    hyphens: auto;
-    word-break: break-word;
-    overflow-wrap: break-word;
-  }
-}
-
-/* ULTRA-DYNAMIC Box2 H3 - AUTO-FITTING */
-.box2 h3 {
-  color: #2c3e50;
-  margin-bottom: 1.2rem;
-  font-weight: 600;
-  line-height: 1;
-  text-align: left;
-  max-width: 100%;
-  width: 100%;
-
-  /* DYNAMIC SIZING */
-  font-size: clamp(0.7rem, 6cqi, 2.5rem);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  min-width: 0;
-}
-
-@container (min-width: 250px) {
-  .box2 h3 {
-    font-size: clamp(0.9rem, 5cqi, 2rem);
-    white-space: normal;
-    overflow: visible;
-    text-overflow: unset;
-    word-spacing: 0.03em;
-    hyphens: none;
-    word-break: keep-all;
-    overflow-wrap: normal;
-  }
-}
-
-@container (max-width: 249px) {
-  .box2 h3 {
-    font-size: clamp(0.6rem, 3cqi, 1.5rem);
-    white-space: normal;
-    overflow: visible;
-    text-overflow: unset;
-    hyphens: auto;
-    word-break: break-word;
-    overflow-wrap: break-word;
-  }
-}
-
-/* ULTRA-DYNAMIC Box2 H4 - AUTO-FITTING */
-.box2 h4 {
-  color: #2c3e50;
-  margin-bottom: 1rem;
-  font-weight: 500;
-  line-height: 1;
-  text-align: left;
-  max-width: 100%;
-  width: 100%;
-
-  /* DYNAMIC SIZING */
-  font-size: clamp(0.6rem, 5cqi, 2rem);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  min-width: 0;
-}
-
-@container (min-width: 200px) {
-  .box2 h4 {
-    font-size: clamp(0.8rem, 4cqi, 1.6rem);
-    white-space: normal;
-    overflow: visible;
-    text-overflow: unset;
-    word-spacing: 0.02em;
-    hyphens: none;
-    word-break: keep-all;
-    overflow-wrap: normal;
-  }
-}
-
-@container (max-width: 199px) {
-  .box2 h4 {
-    font-size: clamp(0.5rem, 2.5cqi, 1.2rem);
-    white-space: normal;
-    overflow: visible;
-    text-overflow: unset;
-    hyphens: auto;
-    word-break: break-word;
-    overflow-wrap: break-word;
-  }
-}
-
-/* ULTRA-DYNAMIC Greeting - AUTO-FITTING */
-.greeting {
-  font-weight: 300;
-  margin-bottom: 3rem;
-  text-align: left;
-  color: #2c3e50;
-  line-height: 1;
-  width: 100%;
-  align-self: flex-start;
-
-  /* DYNAMIC SIZING */
-  font-size: clamp(0.9rem, 10cqi, 5rem);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  min-width: 0;
-}
-
-@container (min-width: 350px) {
-  .greeting {
-    font-size: clamp(1.2rem, 8cqi, 4rem);
-    white-space: normal;
-    overflow: visible;
-    text-overflow: unset;
-    word-spacing: 0.05em;
-    hyphens: none;
-    word-break: keep-all;
-    overflow-wrap: normal;
-  }
-}
-
-@container (min-width: 250px) and (max-width: 349px) {
-  .greeting {
-    font-size: clamp(1rem, 6cqi, 3rem);
-    white-space: normal;
-    overflow: visible;
-    text-overflow: unset;
-    word-spacing: 0.03em;
-    hyphens: none;
-    word-break: keep-all;
-    overflow-wrap: normal;
-  }
-}
-
-@container (max-width: 249px) {
-  .greeting {
-    font-size: clamp(0.8rem, 4cqi, 2.5rem);
-    white-space: normal;
-    overflow: visible;
-    text-overflow: unset;
-    hyphens: auto;
-    word-break: break-word;
-    overflow-wrap: break-word;
-  }
-}
-
-/* FIXED: Extra content styling for box2 - Left aligned */
-.box2 .extra-content {
-  width: 100%;
-  max-width: 600px;
-  margin: 0;
-  padding: 2rem 0;
-  align-self: flex-start;
-}
-
-.box2 .extra-content h3 {
-  color: #2c3e50;
-  font-size: clamp(1.4rem, 3vw + 0.3rem, 2rem);
-  margin-bottom: 2rem;
-  text-align: left;
-  font-weight: 600;
-}
-
-.box2 .extra-content p {
-  color: #555;
-  font-size: clamp(1rem, 2vw + 0.2rem, 1.3rem);
-  line-height: 1.7;
-  margin-bottom: 1.8rem;
-  text-align: left;
-  word-wrap: break-word;
-  word-break: normal;
-  overflow-wrap: break-word;
-  hyphens: auto;
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  -ms-hyphens: auto;
-  widows: 2;
-  orphans: 2;
-}
-
-/* ADDED: Additional content elements for Box2 */
-.box2 .content-section {
-  width: 100%;
-  max-width: 100%;
-  align-self: flex-start;
-  margin-bottom: 2rem;
-}
-
-.box2 .content-section h1,
-.box2 .content-section h2,
-.box2 .content-section h3,
-.box2 .content-section h4,
-.box2 .content-section h5,
-.box2 .content-section h6 {
-  text-align: left;
-  width: 100%;
-}
-
-.box2 .content-section p,
-.box2 .content-section ul,
-.box2 .content-section ol,
-.box2 .content-section div {
-  text-align: left;
-  width: 100%;
-}
-
-.box2 .content-section ul li,
-.box2 .content-section ol li {
-  text-align: left;
-  margin-bottom: 0.5rem;
-}
-
-a {
-  text-decoration: none;
-}
-
-/* DYNAMIC Size Variations - ULTRA-RESPONSIVE WITH BIGGER SIZES */
-.box1 h1.hero {
-  font-size: clamp(3rem, 30cqi, 15rem);
-  line-height: 0.85;
-  margin-bottom: 2rem;
-}
-
-@container (min-width: 500px) {
-  .box1 h1.hero {
-    font-size: clamp(4rem, 25cqi, 12rem);
-    white-space: normal;
-    word-spacing: 0.12em;
-    hyphens: none;
-    word-break: keep-all;
-  }
-}
-
-.box1 h1.large {
-  font-size: clamp(2.5rem, 25cqi, 12rem);
-  line-height: 0.9;
-}
-
-@container (min-width: 400px) {
-  .box1 h1.large {
-    font-size: clamp(3.5rem, 22cqi, 10rem);
-    white-space: normal;
-    word-spacing: 0.1em;
-    hyphens: none;
-    word-break: keep-all;
-  }
-}
-
-.box1 h1.medium {
-  font-size: clamp(2rem, 20cqi, 10rem);
-  line-height: 0.95;
-}
-
-@container (min-width: 350px) {
-  .box1 h1.medium {
-    font-size: clamp(3rem, 18cqi, 8rem);
-    white-space: normal;
-    word-spacing: 0.08em;
-    hyphens: none;
-    word-break: keep-all;
-  }
-}
-
-.box1 h1.small {
-  font-size: clamp(1.5rem, 18cqi, 8rem);
-  line-height: 1;
-}
-
-@container (min-width: 300px) {
-  .box1 h1.small {
-    font-size: clamp(2.5rem, 15cqi, 6rem);
-    white-space: normal;
-    word-spacing: 0.06em;
-    hyphens: none;
-    word-break: keep-all;
-  }
-}
-
-/* H2 Size Variations - DYNAMIC */
-.box1 h2.large {
-  font-size: clamp(0.9rem, 10cqi, 4rem);
-}
-
-.box1 h2.medium {
-  font-size: clamp(0.8rem, 8cqi, 3.5rem);
-}
-
-.box1 h2.small {
-  font-size: clamp(0.7rem, 6cqi, 3rem);
-}
-
-/* H3 Size Variations - DYNAMIC */
-.box1 h3.large {
-  font-size: clamp(0.8rem, 8cqi, 3rem);
-}
-
-.box1 h3.medium {
-  font-size: clamp(0.7rem, 6cqi, 2.5rem);
-}
-
-.box1 h3.small {
-  font-size: clamp(0.6rem, 5cqi, 2rem);
-}
-
-/* Responsive design for tablets */
-@media (max-width: 1024px) {
-  .container {
-    grid-template-columns: 45% auto;
-  }
-
-  .box1::-webkit-scrollbar {
-    width: 10px;
-  }
-
-  .box1 {
-    padding: 1.5rem 2rem;
-    margin-right: -10px;
-  }
-
-  .box2 {
-    padding: 2rem 1.5rem;
-  }
-
-  .header-section {
-    margin-bottom: 2.5rem;
-    padding-top: 1.5rem;
-  }
-
-  .social-section {
-    margin: 2.5rem 0 1rem 0;
-  }
-
-  .greeting {
-    margin-bottom: 2rem;
-  }
-
-  .box2 .extra-content {
-    padding: 1.5rem 0;
-    margin: 0;
-  }
-
-  .box2 .extra-content h3 {
-    margin-bottom: 1.5rem;
-  }
-
-  .box2 .extra-content p {
-    margin-bottom: 1.5rem;
-  }
-}
-
-/* Mobile responsive design */
-@media (max-width: 770px) {
-  .container {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    min-height: 100vh;
-  }
-
-  .box1 {
-    padding: 1.5rem 1rem;
-    overflow-y: visible;
-    height: auto;
-    min-height: auto;
-    background: linear-gradient(to bottom, #202020 0%, #2a2a2a 100%);
-    margin-right: 0;
-  }
-
-  .box2 {
-    padding: 1.5rem 1rem;
-    height: auto;
-    min-height: auto;
-    overflow-y: visible;
-    background: linear-gradient(to bottom, #f8f9fa 0%, white 100%);
-    align-items: flex-start;
-  }
-
-  .box1::-webkit-scrollbar,
-  .box2::-webkit-scrollbar {
-    display: none;
-  }
-
-  .header-section {
-    margin-bottom: 1.5rem;
-    padding-top: 0.5rem;
-  }
-
-  .nav-section {
-    margin-bottom: 1.5rem;
-    padding: 0.5rem 0;
-  }
-
-  .social-section {
-    margin: 1.5rem 0 0.5rem 0;
-  }
-
-  .footer-section {
-    padding: 0.5rem 0;
-    margin-bottom: 0;
-  }
-
-  .greeting {
-    margin-bottom: 1rem;
-    margin-top: 0;
-    text-align: left;
-    align-self: flex-start;
-    width: 100%;
-  }
-
-  .box2 .extra-content {
-    padding: 0;
-    margin-top: 0;
-    margin: 0;
-    align-self: flex-start;
-    width: 100%;
-  }
-
-  .box2 .extra-content h3 {
-    margin-bottom: 1rem;
-    text-align: left;
-  }
-
-  .box2 .extra-content p {
-    margin-bottom: 1rem;
-  }
-
-  .box1 nav ul li {
-    padding: 0.2rem 0;
-  }
-
-  .box1 nav ul li a {
-    padding: 0.3rem 0;
-  }
-
-  /* IMPROVED: Better mobile social icon sizing */
-  .social {
-    gap: 0.5rem;
-    margin: 1rem 0;
-    width: 100%;
-    justify-content: space-between;
-    flex-wrap: nowrap;
-    padding: 0.5rem 0;
-  }
-
-  .social div {
-    width: max(45px, min(55px, 10vw));
-    height: max(45px, min(55px, 10vw));
-    min-width: 40px;
-    min-height: 40px;
-  }
-
-  .social div i {
-    font-size: max(1rem, min(1.4rem, 8vw));
-  }
-}
-
-/* Extra small screens */
-@media (max-width: 480px) {
-  .box1 {
-    padding: 1rem 0.8rem;
-  }
-
-  .box2 {
-    padding: 1rem 0.8rem;
-    align-items: flex-start;
-  }
-
-  .header-section {
-    margin-bottom: 1rem;
-    padding-top: 0.3rem;
-  }
-
-  .nav-section {
-    margin-bottom: 1rem;
-    padding: 0.3rem 0;
-  }
-
-  .social-section {
-    margin: 1rem 0 0.3rem 0;
-  }
-
-  .footer-section {
-    padding: 0.3rem 0;
-  }
-
-  .greeting {
-    text-align: left;
-    width: 100%;
-    align-self: flex-start;
-  }
-
-  .box2 .extra-content {
-    margin: 0;
-    width: 100%;
-    align-self: flex-start;
-  }
-
-  .box2 .extra-content h3 {
-    margin-bottom: 0.8rem;
-    text-align: left;
-  }
-
-  .box2 .extra-content p {
-    margin-bottom: 0.8rem;
-  }
-
-  .box1 nav ul {
-    gap: 0;
-  }
-
-  .box1 nav ul li {
-    padding: 0.1rem 0;
-  }
-
-  .box1 nav ul li a {
-    padding: 0.2rem 0;
-  }
-
-  .social {
-    gap: 0.3rem;
-    padding: 0.3rem 0;
-  }
-
-  .social div {
-    width: max(42px, min(50px, 9vw));
-    height: max(42px, min(50px, 9vw));
-    min-width: 38px;
-    min-height: 38px;
-  }
-
-  .social div i {
-    font-size: max(0.9rem, min(1.2rem, 7vw));
-  }
-}
-
-/* Ultra small screens (320px and below) */
-@media (max-width: 320px) {
-  .box1 {
-    padding: 0.8rem 0.5rem;
-  }
-
-  .box2 {
-    padding: 0.8rem 0.5rem;
-    align-items: flex-start;
-  }
-
-  .header-section {
-    margin-bottom: 0.8rem;
-    padding-top: 0.2rem;
-  }
-
-  .nav-section {
-    margin-bottom: 0.8rem;
-    padding: 0.2rem 0;
-  }
-
-  .social-section {
-    margin: 0.8rem 0 0.2rem 0;
-  }
-
-  .footer-section {
-    padding: 0.2rem 0;
-  }
-
-  .greeting {
-    margin-bottom: 0.8rem;
-    text-align: left;
-    width: 100%;
-    align-self: flex-start;
-  }
-
-  .box2 .extra-content {
-    margin: 0;
-    width: 100%;
-    align-self: flex-start;
-  }
-
-  .box2 .extra-content h3 {
-    margin-bottom: 0.6rem;
-    text-align: left;
-  }
-
-  .box2 .extra-content p {
-    margin-bottom: 0.6rem;
-  }
-
-  .social {
-    gap: 0.2rem;
-    padding: 0.2rem 0;
-  }
-
-  .social div {
-    width: max(38px, min(45px, 8vw));
-    height: max(38px, min(45px, 8vw));
-    min-width: 35px;
-    min-height: 35px;
-  }
-
-  .social div i {
-    font-size: max(0.8rem, min(1.1rem, 6vw));
-  }
-}
-
-@media (max-width: 400px) {
-  .social div {
-    width: max(40px, 8.5vw);
-    height: max(40px, 8.5vw);
-    min-width: 36px;
-    min-height: 36px;
-  }
-
-  .social div i {
-    font-size: max(0.85rem, 6.5vw);
-  }
-}
-
-/* Utility classes for alignment control */
-.text-left {
-  text-align: left !important;
-}
-
-.text-center {
-  text-align: center !important;
-}
-
-.text-right {
-  text-align: right !important;
-}
-
-.align-left {
-  align-self: flex-start !important;
-}
-
-.align-center {
-  align-self: center !important;
-}
-
-.align-right {
-  align-self: flex-end !important;
-}
-
-.full-width {
-  width: 100% !important;
-  max-width: 100% !important;
-}
-
-/* Force left alignment for all Box2 content */
-.box2 * {
-  text-align: left;
-}
-
-/* Override for specific elements that might need center alignment */
-.box2 .center-override {
-  text-align: center !important;
-}
-
-.box2 .right-override {
-  text-align: right !important;
 }

@@ -1,0 +1,106 @@
+// ===========================================
+// personal website
+// ===========================================
+
+// This array contains all the different color themes that users can cycle through
+
+const themes = [
+  {
+    name: "default", // Theme identifier
+    box1: "#0d1117", // GitHub dark background
+    box1Gradient: "linear-gradient(to bottom, #0d1117 0%, #161b22 100%)", // Mobile gradient version
+  },
+  {
+    name: "purple-rose",
+    box1: "#AA759F", // Purple-rose sidebar
+    box1Gradient: "linear-gradient(to bottom, #AA759F 0%, #c48bb7 100%)",
+  },
+  {
+    name: "brown",
+    box1: "#8F5536", // Brown sidebar
+    box1Gradient: "linear-gradient(to bottom, #8F5536 0%, #a66b4a 100%)",
+  },
+  {
+    name: "red",
+    box1: "#AC4142", // Red sidebar
+    box1Gradient: "linear-gradient(to bottom, #AC4142 0%, #c55a5a 100%)",
+  },
+  {
+    name: "orange",
+    box1: "#D28445", // Orange sidebar
+    box1Gradient: "linear-gradient(to bottom, #D28445 0%, #e19a5f 100%)",
+  },
+  {
+    name: "green",
+    box1: "#90A959", // Green sidebar
+    box1Gradient: "linear-gradient(to bottom, #90A959 0%, #a3bb70 100%)",
+  },
+  {
+    name: "teal",
+    box1: "#75B5AA", // Teal sidebar
+    box1Gradient: "linear-gradient(to bottom, #75B5AA 0%, #8bc5bc 100%)",
+  },
+  {
+    name: "blue",
+    box1: "#6A9FB5", // Blue sidebar
+    box1Gradient: "linear-gradient(to bottom, #6A9FB5 0%, #82b3c7 100%)",
+  },
+];
+
+let currentThemeIndex = 0;
+
+// ===========================================
+// MAIN THEME SWITCHING FUNCTION
+// ===========================================
+
+function changeColor() {
+  currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+
+  const theme = themes[currentThemeIndex];
+
+  const box1 = document.querySelector(".box1"); // The sidebar
+
+  const isMobile = window.innerWidth <= 770;
+
+  if (isMobile) {
+    // On mobile, apply the gradient background for visual appeal
+    box1.style.background = theme.box1Gradient;
+  } else {
+    // On desktop, apply the solid background color
+    box1.style.backgroundColor = theme.box1;
+  }
+
+  
+  box1.style.transition = "all 0.5s ease"; 
+
+
+// ===========================================
+// RESPONSIVE THEME REAPPLICATION
+// ===========================================
+
+window.addEventListener("resize", () => {
+  if (currentThemeIndex > 0) {
+    const theme = themes[currentThemeIndex];
+
+    const box1 = document.querySelector(".box1");
+
+    const isMobile = window.innerWidth <= 770;
+
+    if (isMobile) {
+      box1.style.background = theme.box1Gradient;
+    } else {
+      box1.style.backgroundColor = theme.box1;
+    }
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("Portfolio loaded successfully!");
+  console.log(
+    "Click the question mark (?) icon to change sidebar color themes!",
+  );
+  console.log(
+    "Available sidebar themes:",
+    themes.map((t) => t.name).join(", "),
+  );
+});
