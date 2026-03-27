@@ -54,7 +54,13 @@ function changeTheme() {
   box1.style.background = theme.box1Gradient;
   const icons = document.querySelectorAll(".icon-color");
   icons.forEach((icon) => {
+    //================================
+    //this bottom part is alternative way to change the icon color but not using the !important tag in css i did on the .social div:hover i part in style.css file
     icon.style.color = theme.iconColor;
+    //     document.documentElement.style.setProperty(
+    //   "--icon-color",
+    //   theme.iconColor
+    // );
   });
 }
 
